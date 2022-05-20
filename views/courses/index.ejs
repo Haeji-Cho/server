@@ -1,0 +1,36 @@
+<h2 class="center">Subscribers Table</h2>
+<table class = "table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% subscribers.forEach(subscribers => {%>
+        <tr>
+            <td>
+                <a href="<%= '/subscribers/$subscriber.id'}' %>">
+                    <%= subscriber.name %>
+                </a>
+            </td>
+            <td>
+                <%= subscriber.emil %>
+            </td>
+            <td>
+                <a href="<%='subscribers/${subscriber.id}/edit'%>">
+                    Edit
+                </a>
+            </td>
+            <td>
+                <form action ="<%='subscribers/$subscriber.id}/delete'%>" method="post">
+                    <input type="hidden" name="id" value="<%= subscriber.id %>">
+                    <input type="submit" name="Delete" value="Delete" onClick="alert('Are you sure you want to delete this record?')">
+                </form>
+            </td>
+        </tr>})
+        <% }); %>
+    </tbody>
+</table>
